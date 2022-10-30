@@ -12,14 +12,36 @@ body {
   background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
   font-family: sans-serif;
   color: white;
+  background-image: url(./gorgeous-clouds-background-with-blue-sky-design_1017-25501.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.location {
-height:30vh;
-width: 50%;
-display: flex;
-justify-content: space-around;
-align-items: center;
+.location,
+.temperature {
+  height: 30vh;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.temperature {
+  flex-direction: column;
+}
+.degree-section {
+  display: flex;
+  align-items: center;
+}
+.degree-section span{
+    margin: 10px;  
+    font-size: 20px;
+}
+.location h1, h2 ,span,p{
+    color: black;
+}
+.temperature-discription{
+    color: black;
+    font-size:medium
 }
 
 
