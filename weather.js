@@ -1,7 +1,9 @@
 window.addEventListener("load", () => {
   let temperatureDiscription = document.querySelector(".temperature-discription");
   let temperatureDegree = document.querySelector(".temperature-degree");
-  let locationTimezone = document.querySelector(".location-timezone")
+  let locationTimezone = document.querySelector(".location-timezone");
+  let icon = document.querySelector(".icon")
+
 
   let long;
   let lat;
@@ -27,9 +29,11 @@ window.addEventListener("load", () => {
          let weatherSummary = data.weather[0].description;
          temperatureDiscription.textContent = weatherSummary;
          locationTimezone.textContent = data.name
-     
+      let weatherIcon = data.weather[0].icon
+      icon.style.backgroundImage = `url(http://openweathermap.org/img/wn/${weatherIcon}@2x.png)`;
+   
         });
     });
   }
-  
+ 
 });
