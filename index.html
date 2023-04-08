@@ -1,5 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Weather</title>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="search">
+        <input type="text" class="search-bar" placeholder="Search" />
+        <button>Search</button>
+      </div>
+
+      <div class="weather">
+        <p class="error"></p>
+        <h2 class="city"></h2>
+        <h1 class="temperature"></h1>
+        <p class="feels-like"></p>
+        <div class="description-container">
+          <img src="" alt="" class="icon" />
+          <div class="description"></div>
+        </div>
+        <div class="humidity"></div>
+        <div class="wind"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
