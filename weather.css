@@ -1,48 +1,73 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
-  height: 100vh;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
-  font-family: sans-serif;
-  color: white;
-  background-image: url(./gorgeous-clouds-background-with-blue-sky-design_1017-25501.webp);
-  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  background: #000;
+  font-family: "Open Sans", sans-serif;
   background-size: cover;
+  font-size: 120%;
 }
 
-.location,
-.temperature {
-  height: 30vh;
-  width: 50%;
+.card {
+  background: #000000d0;
+  color: #fff;
+  padding: 2em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  margin: 1em;
+}
+
+.search {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 0.5rem;
+  height: 45px;
+  outline: none;
+  background: #7c7c7c2b;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: 25px;
+}
+
+button:hover {
+  background: #7c7c7c6b;
+}
+
+input.search-bar {
+  border: none;
+  outline: none;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  background-color: #7c7c7c2b;
+  color: #fff;
+  font-family: inherit;
+  font-size: 100%;
+  width: calc(100% - 100px);
+}
+
+h1.temperature {
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.error {
+  color: #f00;
+}
+
+.description-container {
+  display: flex;
   align-items: center;
 }
-.temperature {
-  flex-direction: column;
-}
-.degree-section {
-  display: flex;
-  align-items: center;
-}
-.degree-section span{
-    margin: 10px;  
-    font-size: 20px;
-}
-.location h1, h2 ,span,p{
-    color: black;
-}
-.temperature-discription{
-    color: black;
-    font-size:20px;
-    border: 10px;
-}
 
-
+.description {
+  text-transform: capitalize;
+  margin-left: 10px;
+}
