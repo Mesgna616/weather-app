@@ -7,7 +7,6 @@ const weather = () => {
   const searchBarEl = document.querySelector(".search-bar");
 
   document.body.style.backgroundImage = 'url("img/globe-rmy.png")';
-  // Photo by Benjamin Davies on Unsplash
 
   // If the user's location is available this will render the data for that location
   navigator.geolocation.getCurrentPosition((position) => {
@@ -17,7 +16,10 @@ const weather = () => {
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     )
       .then((response) => response.json())
-      .then((data) => displayWeather(data))
+      .then((data) => {
+        console.log(data); // add this line to console log the data
+        displayWeather(data);
+      })
       .catch((error) => (errorEl.innerText = error));
   });
 
@@ -46,6 +48,7 @@ const displayWeather = (data) => {
   const feelsLikeEl = document.querySelector(".feels-like");
   const humidityEl = document.querySelector(".humidity");
   const windEl = document.querySelector(".wind");
+  const timeEl = document.querySelector(".timezone");
 
   // Checks if the location exists in the api
   if (data.cod === "404") {
@@ -57,6 +60,7 @@ const displayWeather = (data) => {
     const { icon, description } = data.weather[0];
     const { temp, feels_like, humidity } = data.main;
     const { speed } = data.wind;
+    const { timezone } = data;
 
     errorEl.innerHTML = "";
     cityEl.innerText = name;
@@ -66,6 +70,23 @@ const displayWeather = (data) => {
     descriptionEl.innerText = description;
     humidityEl.innerText = `Humidity: ${humidity}%`;
     windEl.innerText = `Wind speed: ${Math.round(speed * 3.6)} km/h`;
+    // Create a new Date object using the current time in UTC
+    const currentTimeUTC = new Date();
+
+    // Calculate the current time in the specified timezone
+    const currentTimeInTimezone = new Date(
+      currentTimeUTC.getTime() + timezone * 1000
+    );
+
+    // Format the time string in the specified timezone
+    const timeString = currentTimeInTimezone.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+
+    // Display the formatted time string in the timeEl element
+    timeEl.innerHTML = `Time is ${timeString}`;
   }
 };
 
